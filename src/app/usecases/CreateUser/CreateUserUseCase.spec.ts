@@ -19,13 +19,7 @@ describe('Create a User use case', () => {
             inMemoryUsersRepository
         );
 
-        const userCreated = createUserUseCase.execute({
-            name: "Lucas",
-            age: 21,
-            gender: "male",
-            login: "lucas",
-            password: "lucas123"
-        });
+        const userCreated = createUserUseCase.execute(user);
 
 
     });

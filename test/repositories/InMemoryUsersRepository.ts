@@ -8,10 +8,8 @@ export class InMemoryUsersRepository implements IUsersRepository {
         this.users.push(user);
     }
 
-    async findById(id: string): Promise<any> {
-        const userResponse = await this.users.filter(user => user._id == id);
-    
-
+    async findById(id: string): Promise<User | void> {
+        const userResponse = await this.users.find(user => user.id == id);
 
         return userResponse;
     }
