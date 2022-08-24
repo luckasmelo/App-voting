@@ -21,15 +21,17 @@ describe('Create candidate use case', () => {
             login: 'johnDoe',
             password: '123'
         });
-
-
+       
         const party = new Party({name: 'New Era'});
+        
+        await usersRepository.save(user);
+        await partiesRepository.save(party);
 
         const candidate = new Candidate({
             partyId: party.id,
             userId: user.id,
         });
-        
+                
         const createCandidateUseCase = new CreateCandidateUseCase(candidatesRepository, usersRepository, partiesRepository);
         await createCandidateUseCase.execute(candidate);
     });
