@@ -8,4 +8,10 @@ export class InMemoryCandidatesRepository implements ICandidatesRepository {
     async save(candidate: Candidate): Promise<void> {
         this.candidates.push(candidate);
     }
+
+    async findById(id: string): Promise<Candidate | void> {
+        const candidate = this.candidates.find(candidate => candidate.id === id);
+    
+        return candidate;
+    }
 }
